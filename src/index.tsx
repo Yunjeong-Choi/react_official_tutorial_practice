@@ -2,9 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-class Square extends React.Component {
+class Square extends React.Component<{}, { value: string | null }> {
+  constructor(props: any) {
+    super(props);
+    this.state = { value: null };
+  }
   render() {
-    return <button className="square">{/* TODO */}</button>;
+    return (
+      <button
+        className="square"
+        onClick={() => {
+          this.setState({ value: "X" });
+        }}
+      >
+        {this.state.value}
+      </button>
+    );
   }
 }
 
